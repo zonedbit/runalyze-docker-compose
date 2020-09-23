@@ -76,3 +76,26 @@ If the *webapp* container does not start correctly, use `docker-compose down` an
 - Open the URL *http://127.0.0.1:8000/install/start* in your browser
 - Follow the instruction on the screen to setup runalyze. After the successful setup, a new user account must be created.
 - Congratulation, you should be able to login to Runalyze via *http://127.0.0.1:8000* and upload your first activity. *Enjoy Running :-)*
+
+## Customize configuration - Environment files
+It might be helpful to use a customize configuration, e.g. to use API-Keys to retrieve the weather data of your activity.
+
+To avoid conflicts with the provided default configuration -e.g. overwriting files by a git pull- you can create a docker-compose
+environment file and provide the values, see example below
+
+``` bash
+touch .env
+
+# the name of the docker volume for the database; Default value: *default_config.yml*
+echo "RUNALYZE_DATA_VOLUME=runalyze-docker_runalyze_data" >> .env
+
+# the name of the custom configuration file; Default value: *default_runalyze_data_volume*
+echo "RUNALYZE_WEB_APP_CONFIG=config.yml" >> .env
+
+# Cope the configuration file
+cp web-app/data/config/default_config.yml web-app/data/config/config.yml
+
+# Change the values or provide the API Keys
+vi web-app/data/config/config.yml
+
+```

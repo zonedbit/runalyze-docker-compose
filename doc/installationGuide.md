@@ -69,6 +69,19 @@ To avoid conflicts by updating this project, it is recommended to create your cu
 This can be achieved be copy the config.yml file and providing the new name of the file as
 [environment variable](#Customize-configuration---environment-files).
 
+### Timezone Data
+For time correction it is possible to download *timezone.sqlite* data file.
+
+``` bash
+cd web-app/data
+
+# Download the file
+wget -O timezone.sqlite https://cdn.runalyze.com/update/timezone.sqlite
+
+# Create tarball
+tar -zcvf timezone.sqlite.tar.gz timezone.sqlite
+```
+
 ### Create database tables via browser
 Start the docker containers with docker-compose:
 ``` bash

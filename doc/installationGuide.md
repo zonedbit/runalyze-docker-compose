@@ -57,8 +57,19 @@ mysql -u runalyze -p runalyze
 
 ALTER TABLE `runalyzetraining` ADD `is_power_calculated` TINYINT(1) DEFAULT NULL AFTER `power`;
 ```
+
 ## Install runalyze
 
+# API Keys
+By providing API keys it is possible to fetch information from a third party API such as weather data.
+Therefore it is necessary to provide API keys for the services, which should be used.
+
+The API keys must be configured in the file *web-app/data/config.yml*.
+To avoid conflicts by updating this project, it is recommended to create your custom configuration files.
+This can be achieved be copy the config.yml file and providing the new name of the file as
+[environment variable](Customize_configuration_-_Environment_files).
+
+# Create database tables via browser
 Start the docker containers with docker-compose:
 ``` bash
 # Start the container in the foreground

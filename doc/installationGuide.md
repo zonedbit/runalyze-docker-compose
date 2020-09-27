@@ -82,6 +82,11 @@ wget -O timezone.sqlite https://cdn.runalyze.com/update/timezone.sqlite
 tar -zcvf timezone.sqlite.tar.gz timezone.sqlite
 ```
 
+### Elevation data
+Download the elevation data for your region from [DWTKNS](http://dwtkns.com/srtm/) and save the ZIP files to *web-app/data/srtm*
+
+**Remark**, it seems that elevation data are not corrected.It is unclear, if this is due to a bug in this setup or a bug in runalyze itself. 
+
 ### Create database tables via browser
 Start the docker containers with docker-compose:
 ``` bash

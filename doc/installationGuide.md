@@ -83,9 +83,13 @@ tar -zcvf timezone.sqlite.tar.gz timezone.sqlite
 ```
 
 ### Elevation data
-Download the elevation data for your region from [DWTKNS](http://dwtkns.com/srtm/) and save the ZIP files to *web-app/data/srtm*
+Use this website to identify the name of the file you need to download for your region [DWTKNS](http://dwtkns.com/srtm/) and search the file in [STEP ESA INT](https://step.esa.int/auxdata/dem/SRTM90/tiff/). Then extract the .zip file and save only the .tif files to *web-app/data/srtm*. The app uses only the .tif files.
 
-**Remark**, it seems that elevation data are not corrected.It is unclear, if this is due to a bug in this setup or a bug in runalyze itself. 
+Then build the webapp so the files can be copied to the correct folder: 
+```
+docker compose build webapp 
+```
+
 
 ### Create database tables via browser
 Start the docker containers with docker-compose:
